@@ -7,9 +7,7 @@ import time
 import pyrosim.pyrosim as pyrosim
 import numpy
 import constants as c
-
 class SIMULATION:
-
     def __init__(self):
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -17,13 +15,13 @@ class SIMULATION:
         p.setGravity(0,0,-9.8)
         self.robot = ROBOT()
         self.world = WORLD()
-        
 
     def Run(self):
         for i in range(1000):
-            print(i)
+            # print(i)
             p.stepSimulation()
             self.robot.Sense(i)
+            self.robot.Think()
             self.robot.Act(i)
             time.sleep(1./60.)
 
