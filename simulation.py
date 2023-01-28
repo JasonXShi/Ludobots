@@ -8,8 +8,13 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import constants as c
 class SIMULATION:
-    def __init__(self):
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self, arg):
+        if arg == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+        elif arg == "GUI":
+            self.physicsClient = p.connect(p.GUI)
+        else:
+            self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.stepSimulation()
         p.setGravity(0,0,-9.8)
@@ -23,7 +28,7 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            time.sleep(1./60.)
+            # time.sleep(1./60.)
 
         # numpy.save("data/backLegSensorValues.txt", backLegSensorValues)
         # numpy.save("data/frontLegSensorValues.txt", frontLegSensorValues)
@@ -32,3 +37,6 @@ class SIMULATION:
 
     def __del__(self):
         p.disconnect()
+
+    def Get_Fitness(self):
+        return self.robot.Get_Fitness()

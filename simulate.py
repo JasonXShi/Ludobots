@@ -1,8 +1,11 @@
 from simulation import SIMULATION
+import sys
 
-simulation = SIMULATION()
+simulation = SIMULATION(sys.argv[1])
 
 simulation.Run()
+
+simulation.Get_Fitness()
 
 # import pybullet as p
 # import pybullet_data
