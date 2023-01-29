@@ -9,6 +9,7 @@ import numpy
 import constants as c
 class SIMULATION:
     def __init__(self, arg):
+        self.directOrGui = arg
         if arg == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         elif arg == "GUI":
@@ -28,7 +29,8 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            # time.sleep(1./60.)
+            if self.directOrGui == "GUI":
+                time.sleep(1./60.)
 
         # numpy.save("data/backLegSensorValues.txt", backLegSensorValues)
         # numpy.save("data/frontLegSensorValues.txt", frontLegSensorValues)

@@ -14,7 +14,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python simulate.py "+directOrGui)
+        os.system("python3 simulate.py "+directOrGui)
         fitnessFile = "fitness.txt"
         f = open(fitnessFile, "r")
         self.fitness = float(f.read())
