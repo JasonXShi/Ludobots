@@ -9,3 +9,4 @@ frequency_b =  10
 phaseOffset_b = numpy.pi/4
 
 numberOfGenerations = 10
+populationSize = 10
