@@ -7,6 +7,7 @@ import pyrosim.pyrosim as pyrosim
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import numpy
 import os
+import constants as c
 
 class ROBOT:
 
@@ -43,7 +44,7 @@ class ROBOT:
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
                 # print(self.motors.keys())
                 # print("jointName: ", jointName)
-                desiredAngle = self.nn.Get_Value_Of(neuronName)
+                desiredAngle = self.nn.Get_Value_Of(neuronName)*c.motorJointRange
                 self.motors[jointName.encode()].Set_Value(self, desiredAngle, self.sensors)
                 # print(neuronName, jointName, desiredAngle)
 
