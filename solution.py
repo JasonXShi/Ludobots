@@ -8,7 +8,7 @@ import constants as c
 class SOLUTION:
     def __init__(self, ID):
         #create a 3x2 matrix of random values
-        self.weights = np.random.rand(c.numSensorNeurons,c.numMotorNeurons)
+        self.weights = np.random.rand(c.numSensorNeurons,c.numMotorNeurons)*2-1
         self.ID = ID
         self.nextAvailableID = 0
         # print(self.weights)
