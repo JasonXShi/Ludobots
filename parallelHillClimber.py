@@ -28,7 +28,7 @@ class PARALLEL_HILL_CLIMBER:
             if self.parents[i].fitness > bestParent.fitness:
                 bestParent = self.parents[i]
         bestParent.Start_Simulation("GUI")
-        print(bestParent.fitness)
+        print("fitness", bestParent.fitness)
         
 
     def Evolve_For_One_Generation(self):

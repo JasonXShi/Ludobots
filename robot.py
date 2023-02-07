@@ -29,15 +29,11 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
     
     def Sense(self, timeStep):
-        i = 0
         for linkName in self.sensors:
-            if i == 0:
-                self.sensors[linkName] = math.sin(timeStep*1)
-                i = 1
-            else:
-                self.sensors[linkName].GetValue(timeStep)
-                if(timeStep == 999):
-                    print(self.sensors[linkName].values)
+            self.sensors[linkName].GetValue(timeStep)
+            # print(self.sensors[linkName].values[timeStep])
+            if(timeStep == 999):
+                print(self.sensors[linkName].values)
 
     def Prepare_To_Act(self):
         self.motors = {}
@@ -65,8 +61,25 @@ class ROBOT:
     def Get_Fitness(self):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[1]
+        yPosition = basePosition[1]
+        s = ["LLLeg", "RRLeg", "FrontLowerLeg", "BackLowerLeg", "LeftLowerLeg", "RightLowerLeg"]
+        longest_jump = 0
+        curr_jump = 0
+        for i in range(len(self.sensors["RRLeg"].values)):
+            # print(i)
+            j = True
+            for linkName in s:
+                if self.sensors[linkName].values[i] == 1:
+                    j = False
+                    curr_jump = 0
+                    break
+            if j:
+                curr_jump += 1
+                if curr_jump > longest_jump:
+                    longest_jump = curr_jump
+        # print("longest_jump: ", longest_jump)
+        
         f = open("tmp"+str(self.solutionID)+".txt", "w")
-        f.write(str(xPosition))
+        f.write(str(longest_jump))
         f.close()
         os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")
