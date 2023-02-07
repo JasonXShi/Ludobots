@@ -32,8 +32,8 @@ class ROBOT:
         for linkName in self.sensors:
             self.sensors[linkName].GetValue(timeStep)
             # print(self.sensors[linkName].values[timeStep])
-            if(timeStep == 999):
-                print(self.sensors[linkName].values)
+            # if(timeStep == 999):
+            #     print(self.sensors[linkName].values)
 
     def Prepare_To_Act(self):
         self.motors = {}
