@@ -7,6 +7,7 @@ import pyrosim.pyrosim as pyrosim
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import numpy
 import os
+import math
 import constants as c
 
 class ROBOT:
@@ -28,10 +29,15 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
     
     def Sense(self, timeStep):
+        i = 0
         for linkName in self.sensors:
-            self.sensors[linkName].GetValue(timeStep)
-            if(timeStep == 999):
-                print(self.sensors[linkName].values)
+            if i == 0:
+                self.sensors[linkName] = math.sin(timeStep*1)
+                i = 1
+            else:
+                self.sensors[linkName].GetValue(timeStep)
+                if(timeStep == 999):
+                    print(self.sensors[linkName].values)
 
     def Prepare_To_Act(self):
         self.motors = {}
@@ -59,7 +65,7 @@ class ROBOT:
     def Get_Fitness(self):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
+        xPosition = basePosition[1]
         f = open("tmp"+str(self.solutionID)+".txt", "w")
         f.write(str(xPosition))
         f.close()
