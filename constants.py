@@ -11,7 +11,7 @@ phaseOffset_b = numpy.pi/4
 numberOfGenerations = 10
 populationSize = 10
 
-numSensorNeurons = 9
-numMotorNeurons = 7
+numSensorNeurons = 13
+numMotorNeurons = 11
 
 motorJointRange = 1
