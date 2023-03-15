@@ -3,10 +3,9 @@
 ### Overview
 In this assignment, I evolved 10 seeds with a population size of 10 and 500 generations to move the furthest distance from (0,0). To run the program, run the make_horse.py file. 
 
-2 Minute Summary Video:
+2 Minute Summary Video (https://youtu.be/gJDAPMBvNko):
 
-
-
+https://user-images.githubusercontent.com/12127463/225212986-61a60233-e962-4860-887c-77b0ba2b57fc.mp4
 
 10 Second Teaser Gif:
 
@@ -18,7 +17,7 @@ In this assignment, I evolved 10 seeds with a population size of 10 and 500 gene
 Sim Count: 50,000+
 
 I ran 10 simulations with 500 generations and 10 population size. The fitness graphs for these simulations are here: https://docs.google.com/document/d/1Qr4omJ0T2rvjbqmTKlFaEyeMHZjNmgNE3qevkng9Hv0/edit?usp=sharing
-Each simulation with 500 generations and 10 population size took me around 20 minutes to complete. 
+Each simulation with 500 generations and 10 population size took me around 20 minutes to complete. I've included some cool robots in the cool_robots folder (you can run these by loading the body[#].urdf and brain[#].nndf files and simulating them.
 
 Laws of Physics Are Obeyed: Body is randomly generated and obeys all the laws of physics. Mutation is also random.
 
