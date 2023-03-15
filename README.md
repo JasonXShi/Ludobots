@@ -28,7 +28,9 @@ Explanation of Codebase: I used the parallelHillClimber.py to evolve 10 populati
 In order to run 50,000 simulations, I ran my parallelHillClimber.py 10 times in total. Selection is handled by the parallelHillClimber.py, where it replaces the parent of each generation if the parent has any children with better fitness than it. 
 
 Generation and Mutation Diagrams:
+
 ![image](https://user-images.githubusercontent.com/12127463/225203595-bafa0faf-9f73-4b76-b325-50c2a5c96d6a.png)
+
 ![image](https://user-images.githubusercontent.com/12127463/225203636-14f891df-4200-4871-ac54-9d48e4ed6472.png)
 
 Results: 
@@ -47,5 +49,7 @@ From this graph, you can see that in the beginning there are more robots that ha
  
  
  Citations:
+ 
  Coding tutorials by reddit.com/r/ludobots
+ 
  Pyrosim by https://github.com/jbongard/pyrosim
