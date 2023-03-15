@@ -8,10 +8,10 @@ amplitude_b = numpy.pi/4
 frequency_b =  10
 phaseOffset_b = numpy.pi/4
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 500
+populationSize = 10
 
-numSensorNeurons = 13
-numMotorNeurons = 11
+numSensorNeurons = 4
+numMotorNeurons = 4
 
 motorJointRange = 1

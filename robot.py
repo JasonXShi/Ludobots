@@ -14,12 +14,12 @@ class ROBOT:
 
     def __init__(self, solutionID):
 
-        self.robotId = p.loadURDF("body.urdf")
+        self.robotId = p.loadURDF("body"+str(solutionID)+".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
         self.nn = NEURAL_NETWORK("brain"+str(solutionID)+".nndf")
-        os.system("del brain"+str(solutionID)+".nndf")
+        # os.system("del brain"+str(solutionID)+".nndf")
         self.solutionID = solutionID
 
 
@@ -31,9 +31,7 @@ class ROBOT:
     def Sense(self, timeStep):
         for linkName in self.sensors:
             self.sensors[linkName].GetValue(timeStep)
-            # print(self.sensors[linkName].values[timeStep])
-            # if(timeStep == 999):
-            #     print(self.sensors[linkName].values)
+         
 
     def Prepare_To_Act(self):
         self.motors = {}
@@ -61,25 +59,12 @@ class ROBOT:
     def Get_Fitness(self):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
-        yPosition = basePosition[1]
-        s = ["LLLeg", "RRLeg", "FrontLowerLeg", "BackLowerLeg", "LeftLowerLeg", "RightLowerLeg"]
-        longest_jump = 0
-        curr_jump = 0
-        for i in range(len(self.sensors["RRLeg"].values)):
-            # print(i)
-            j = True
-            for linkName in s:
-                if self.sensors[linkName].values[i] == 1:
-                    j = False
-                    curr_jump = 0
-                    break
-            if j:
-                curr_jump += 1
-                if curr_jump > longest_jump:
-                    longest_jump = curr_jump
-        # print("longest_jump: ", longest_jump)
+        xPositionRobot = basePosition[0]
+        yPositionRobot = basePosition[1]
+        zPositionRobot = basePosition[2]
+        fitness = numpy.sqrt((xPositionRobot)**2 + (yPositionRobot)**2 + (zPositionRobot)**2)
         
         f = open("tmp"+str(self.solutionID)+".txt", "w")
-        f.write(str(longest_jump))
+        f.write(str(fitness))
         f.close()
         os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")

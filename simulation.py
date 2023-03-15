@@ -14,8 +14,10 @@ class SIMULATION:
             self.physicsClient = p.connect(p.DIRECT)
         elif arg == "GUI":
             self.physicsClient = p.connect(p.GUI)
+            p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
         else:
             self.physicsClient = p.connect(p.GUI)
+            p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.stepSimulation()
         p.setGravity(0,0,-9.8)
@@ -23,7 +25,7 @@ class SIMULATION:
         self.world = WORLD()
 
     def Run(self):
-        for i in range(1000):
+        for i in range(400):
             # print(i)
             p.stepSimulation()
             self.robot.Sense(i)
