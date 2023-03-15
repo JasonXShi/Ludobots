@@ -1,6 +1,6 @@
 # Ludobots
 
-Overview:
+### Overview
 In this assignment, I evolved 10 seeds with a population size of 10 and 500 generations to move the furthest distance from (0,0). To run the program, run the make_horse.py file. 
 
 2 Minute Summary Video:
@@ -13,14 +13,14 @@ In this assignment, I evolved 10 seeds with a population size of 10 and 500 gene
 ![Untitled video - Made with Clipchamp (3)](https://user-images.githubusercontent.com/12127463/225207722-b9839baf-c104-4f57-9f44-b62a45136089.gif)
 
 
+### Methods
+
 Sim Count: 50,000+
 
 I ran 10 simulations with 500 generations and 10 population size. The fitness graphs for these simulations are here: https://docs.google.com/document/d/1Qr4omJ0T2rvjbqmTKlFaEyeMHZjNmgNE3qevkng9Hv0/edit?usp=sharing
 Each simulation with 500 generations and 10 population size took me around 20 minutes to complete. 
 
 Laws of Physics Are Obeyed: Body is randomly generated and obeys all the laws of physics. Mutation is also random.
-
-Methods:
 
 Fitness Value Used: Euclidean distance from (0,0)
 
@@ -33,7 +33,7 @@ Generation and Mutation Diagrams:
 
 ![image](https://user-images.githubusercontent.com/12127463/225203636-14f891df-4200-4871-ac54-9d48e4ed6472.png)
 
-Results: 
+### Results
 
  Example fitness graph of 5000 simulations: (500 generations of 10 population size)
  
@@ -48,7 +48,7 @@ From this graph, you can see that in the beginning there are more robots that ha
  All 10 Fitness Graphs: https://docs.google.com/document/d/1Qr4omJ0T2rvjbqmTKlFaEyeMHZjNmgNE3qevkng9Hv0/edit?usp=sharing
  
  
- Citations:
+### Citations
  
  Coding tutorials by reddit.com/r/ludobots
  
