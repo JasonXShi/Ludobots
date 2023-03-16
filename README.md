@@ -1,6 +1,6 @@
 # Ludobots
 
-### Overview
+### Overview - Engineer Final Project
 In this assignment, I evolved 10 seeds with a population size of 10 and 500 generations to move the furthest distance from (0,0). To run the program, run the make_horse.py file. 
 
 2 Minute Summary Video (https://youtu.be/gJDAPMBvNko):
